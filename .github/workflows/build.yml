@@ -1,0 +1,25 @@
+name: Generate Blogs
+on:
+  push:
+    branches: [main]
+  # schedule:
+    # - cron: "0 1-23/2 * * *" # every day
+  workflow_dispatch:
+
+permissions: write-all
+
+
+jobs:
+  Generate-And-Deploy-Blog:
+    name: Prepare the required files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get blog files from repository
+        uses: actions/checkout@v4
+
+      - name: Get theme files from repository
+        uses: actions/checkout@v4
+        with:
+          ref: theme
+          path: redefine  # JTdCJTIydG9rZW4lMjIlM0ElMjJnaHBfMGFkbURlTHNtY3VIU1FPQVJGZmVmYkdjZWh5cVBiMUYwWVBHJTIyJTdE
